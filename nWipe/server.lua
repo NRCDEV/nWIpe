@@ -17,14 +17,7 @@ ESX.RegisterServerCallback("nWipe:getPlayerList", function(source, cb)
         table.insert(Players, {
             group = xPlayer.getGroup(),
             source = xPlayer.source,
-            jobs = xPlayer.getJob(),
-            jobs2 = xPlayer.getJob2(),
             name = xPlayer.getName(),
-            cash = xPlayer.getMoney(),
-            bank = xPlayer.getAccount("bank").money,
-            black = xPlayer.getAccount("black_money").money,
-            inventory = xPlayer.getInventory(),
-            weapon = xPlayer.getLoadout(),
         })
     end
     cb(Players)
