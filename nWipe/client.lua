@@ -60,7 +60,7 @@ function WipeMenu()
                     end
                 })
                 RageUI.Line()
-                RageUI.Separator("~r~Après cette action vous ne pourrez pas revenir en arrière")
+                RageUI.Separator("~r~Après cette action vous ne pourrez \npas revenir en arrière")
                 RageUI.Button("Oui", nil, {RightBadge = RageUI.BadgeStyle.Alert}, true, {
                     onSelected = function()
                         TriggerServerEvent("nWipe:wipePlayer", source)
