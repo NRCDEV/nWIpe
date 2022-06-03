@@ -3,6 +3,32 @@
 --- Created by guala.
 --- DateTime: 02/06/2022 22:20
 ---
+ESX = nil 
+
+TriggerEvent("esx:getSharedObject", function(obj) ESX = obj end)
+
+ESX.RegisterServerCallback("nWipe:getPlayerList", function(source, cb)
+    local Players = {}
+    local xPlayers = ESX.GetPlayers();
+
+    for i = 1, #xPlayers, 1 do
+        local xPlayer = ESX.GetPlayerFromId(xPlayers[i]);
+
+        table.insert(Players, {
+            group = xPlayer.getGroup(),
+            source = xPlayer.source,
+            jobs = xPlayer.getJob(),
+            jobs2 = xPlayer.getJob2(),
+            name = xPlayer.getName(),
+            cash = xPlayer.getMoney(),
+            bank = xPlayer.getAccount("bank").money,
+            black = xPlayer.getAccount("black_money").money,
+            inventory = xPlayer.getInventory(),
+            weapon = xPlayer.getLoadout(),
+        })
+    end
+    cb(Players)
+end)
 
 RegisterNetEvent("nWipe:checkPerm")
 AddEventHandler("nWipe:checkPerm", function()
