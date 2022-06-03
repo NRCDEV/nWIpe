@@ -4,6 +4,10 @@
 --- DateTime: 02/06/2022 22:20
 ---
 
+ESX = nil
+
+TriggerEvent("esx:getSharedObject", function(obj) ESX = obj end)
+
 local isMenuOpen = false
 
 local wipe_menu = RageUI.CreateMenu("WIPE", "Liste des joueurs")
